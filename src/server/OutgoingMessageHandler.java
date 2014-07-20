@@ -34,6 +34,10 @@ public class OutgoingMessageHandler extends ChannelInboundMessageHandlerAdapter<
     @Override
     public void messageReceived(ChannelHandlerContext context, String message) throws Exception {
         Channel incomingMessage = context.channel();
-        channels.stream().filter(channel -> channel != incomingMessage).forEach(channel -> channel.write("[" + incomingMessage.remoteAddress() + "] " + message + "\n"));
+        for (Channel channel : channels) {
+            if (channel != incomingMessage)
+                channel.write("[" + incomingMessage.remoteAddress() + "] " + message);
+
+        }
     }
 }
