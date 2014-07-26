@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
  */
 public class ChatClient implements Runnable {
 
+    private String displayName = "Corey";
     private String host;
     private int port;
 

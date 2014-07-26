@@ -12,6 +12,7 @@ import io.netty.handler.codec.string.StringEncoder;
  * Created by corey on 19/07/14.
  */
 public class ServerChannelHandler extends ChannelInitializer<SocketChannel> {
+
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
         ChannelPipeline pipeline = socketChannel.pipeline();
@@ -22,4 +23,5 @@ public class ServerChannelHandler extends ChannelInitializer<SocketChannel> {
 
         pipeline.addLast("handler", new OutgoingMessageHandler());
     }
+    
 }
